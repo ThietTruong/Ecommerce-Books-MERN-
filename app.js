@@ -7,8 +7,8 @@ const expressValidator = require("express-validator");
 
 require("dotenv").config();
 //require router
-const useRouter = require("./routers/user");
-
+const authRouter = require("./routers/auth");
+const userRouter = require("./routers/user");
 //app
 const app = new express();
 //db
@@ -27,10 +27,10 @@ app.use(cookiesPaser());
 app.use(expressValidator());
 
 // router midleware
-app.use("/api", useRouter);
+app.use("/api", authRouter);
+app.use("/api", userRouter);
 //port
 const port = process.env.POST || 5555;
-app.get("/", (req, res) => res.send("hello world"));
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
