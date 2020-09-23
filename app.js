@@ -9,6 +9,7 @@ require("dotenv").config();
 //require router
 const authRouter = require("./routers/auth");
 const userRouter = require("./routers/user");
+const categoryRouter = require("./routers/category");
 //app
 const app = new express();
 //db
@@ -29,6 +30,7 @@ app.use(expressValidator());
 // router midleware
 app.use("/api", authRouter);
 app.use("/api", userRouter);
+app.use("/api", categoryRouter);
 //port
 const port = process.env.POST || 5555;
 app.listen(port, () => {
