@@ -29,16 +29,20 @@ const productSchema = moongosse.Schema(
     quantity: {
       type: Number,
     },
-    photo: {
-      type: Buffer,
-      contenType: String,
+    sold: {
+      type: Number,
+      default: 0
     },
+    photo: {
+      data: Buffer,
+      contentType: String
+  },
     shipping: {
       required: false,
       type: Boolean,
     },
   },
-  { timestampes: true }
+  { timestamps: true }
 );
 
 module.exports = moongosse.model("Product", productSchema);

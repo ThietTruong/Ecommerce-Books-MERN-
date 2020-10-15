@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const bodyPaser = require("body-parser");
+const cors = require("cors")
 const cookiesPaser = require("cookie-parser");
 const expressValidator = require("express-validator");
 
@@ -27,6 +28,7 @@ app.use(morgan("dev"));
 app.use(bodyPaser.json());
 app.use(cookiesPaser());
 app.use(expressValidator());
+app.use(cors());
 
 // router midleware
 app.use("/api", authRouter);
